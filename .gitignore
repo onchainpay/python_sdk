@@ -1,0 +1,7 @@
+dist/
+build/
+venv/
+*.pyc
+test.py
+.idea
+.env
