@@ -53,6 +53,14 @@ class Orders:
         check_required_field("order", order)
         check_required_field("lifetime", lifetime)
 
+        if not lifetime:
+            if network == "ripple" or network == "bsc" or network == "ethereum" or network == "fantom" or network == "tron":
+                lifetime = 1800
+            elif network == "litecoin":
+                lifetime = 3600
+            elif network == "bitcoin" or network == "bitcoincash":
+                lifetime = 7200
+
         payload = {
             "advancedBalanceId": self.sdk._advancedBalanceId,
             "currency": currency,
